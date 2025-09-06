@@ -30,8 +30,17 @@ transaçoes.head()
 # %%
 transaçoes = transaçoes.sort_values(by="DtCriacao")
 transaçoes["DtCriacao"] = transaçoes["DtCriacao"].str[:19]
-transaçoes
+
 # %%
 transaçoes["data"] = pd.to_datetime(transaçoes["DtCriacao"]).dt.date
 transaçoes.drop_duplicates(keep="first", subset=["IdCliente", "data"])
+transaçoes = transaçoes.sort_values(by="DtCriacao")
+# %%
+first = transaçoes.drop_duplicates(keep="first", subset=["IdCliente", "data"])
+first
+# %%
+last = transaçoes.drop_duplicates(keep="last", subset=["IdCliente", "data"])
+last
+# %%
+pd.concat([first, last])
 # %%
