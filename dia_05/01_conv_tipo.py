@@ -7,12 +7,10 @@ df
 # %%
 df["QtdePontos"].astype(float)
 # %%
+df["DtCriacao"] = pd.to_datetime(df["DtCriacao"].str.replace('UTC', ''))
 df["DtCriacao"] = df["DtCriacao"].replace({"2024-02-01 00:00:00 +0000":"2024-02-01 09:00:00 +0000"})
-# %%
 pd.to_datetime(df["DtCriacao"])
-# %%
-df["DtCriacao"] = pd.to_datetime(df["DtCriacao"].str.replace('UTC', '')
- )
+
 # %%
 df["DtCriacao"] = df["DtCriacao"].replace({"2024-02-01 00:00:00 +0000":"2024-02-01 09:00:00"})
 
@@ -20,4 +18,8 @@ df["DtCriacao"] = df["DtCriacao"].replace({"2024-02-01 00:00:00 +0000":"2024-02-
 pd.to_datetime(df["DtCriacao"])
 # %%
 df["DtCriacao"].dt.month
+# %%
+
+df.to_csv("../data/clientes2.csv", index=False)
+
 # %%
