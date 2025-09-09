@@ -41,6 +41,6 @@ df_full = (pd.concat(dfs, axis=1)
              .reset_index()
              .sort_values(["período", "nome"]))
 
-df_full.to_csv("homicios_consolidado.csv", index=False, sep=";")
+df_full.to_csv("homicidios_consolidado.csv", index=False, sep=";")
 # %%
 df_full
